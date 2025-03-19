@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food in Taniti</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo-container">
+        <div class="logo">Taniti</div>
+        <a href="visit.html" class="nav-button">Plan Your Trip</a>
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li>
+            <a href="city.html"><i class="fas fa-city"></i> City</a>
+          </li>
+          <li>
+            <a href="food.html"><i class="fas fa-utensils"></i> Food</a>
+          </li>
+          <li>
+            <a href="explore.html"
+              ><i class="fas fa-map-marked-alt"></i> Explore</a
+            >
+          </li>
+          <li>
+            <a href="visit.html"><i class="fas fa-plane"></i> Visit</a>
+          </li>
+          <li>
+            <a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Experience Taniti’s Cuisine</h1>
+      <p>
+        Explore the island’s rich flavors, from fresh seafood to international
+        favorites.
+      </p>
+    </section>
+
+    <section class="main-content">
+      <div class="carousel-container">
+        <div class="carousel">
+          <div class="carousel-slide">
+            <img src="images/food1.jpg" alt="Fresh seafood dish in Taniti" />
+          </div>
+          <div class="carousel-slide">
+            <img src="images/market1.jpg" alt="Taniti street food market" />
+          </div>
+          <div class="carousel-slide">
+            <img src="images/food2.jpg" alt="Pan-Asian cuisine in Taniti" />
+          </div>
+          <div class="carousel-buttons">
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+          </div>
+        </div>
+        <div class="carousel-text">
+          <h2 id="carousel-title">Fresh Seafood</h2>
+          <p id="carousel-description">
+            Taniti’s coastal waters provide an abundance of fresh fish, often
+            grilled or served with rice and tropical fruits.
+          </p>
+        </div>
+      </div>
+
+      <div class="food-info-box">
+        <h2>Dining in Taniti</h2>
+        <p>
+          Taniti’s culinary scene blends island flavors with international
+          influences. Whether you're looking for a casual beachfront eatery or a
+          fine-dining experience, Taniti has something for everyone.
+        </p>
+
+        <h3>Where to Eat</h3>
+        <ul>
+          <li>
+            <strong>Local Seafood Restaurants:</strong> Enjoy freshly caught
+            fish prepared with island spices.
+          </li>
+          <li>
+            <strong>Pan-Asian Cuisine:</strong> Savor flavors inspired by Thai,
+            Japanese, and Chinese dishes.
+          </li>
+          <li>
+            <strong>American-style Diners:</strong> Find familiar favorites,
+            from burgers to hearty breakfasts.
+          </li>
+          <li>
+            <strong>Open-air Markets:</strong> Taste authentic street food while
+            exploring vibrant local markets.
+          </li>
+        </ul>
+
+        <h3>Traditional Dishes</h3>
+        <ul>
+          <li>
+            <strong>Grilled Reef Fish:</strong> A staple dish often served with
+            rice and fresh vegetables.
+          </li>
+          <li>
+            <strong>Tropical Fruit Desserts:</strong> Enjoy desserts made from
+            locally grown mangoes, pineapples, and coconuts.
+          </li>
+          <li>
+            <strong>Spiced Rice & Curry:</strong> A flavorful meal influenced by
+            Asian culinary traditions.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Taniti Tourism | <a href="contact.html">Contact Us</a></p>
+    </footer>
+
+    <script>
+      let slideIndex = 0;
+      let slides;
+      let slideTitles = [
+        "Fresh Seafood",
+        "Local Markets",
+        "Pan-Asian & International Cuisine",
+      ];
+      let slideDescriptions = [
+        "Taniti’s coastal waters provide an abundance of fresh fish, often grilled or served with rice and tropical fruits.",
+        "Experience open-air markets where locals sell fresh produce, traditional dishes, and exotic spices.",
+        "In addition to local specialties, Taniti offers a variety of international flavors, including American-style dishes and Pan-Asian cuisine.",
+      ];
+      let slideInterval;
+
+      function showSlides() {
+        slides = document.querySelectorAll(".carousel-slide");
+        slides.forEach((slide) => (slide.style.display = "none"));
+        if (slideIndex >= slides.length) {
+          slideIndex = 0;
+        }
+        if (slideIndex < 0) {
+          slideIndex = slides.length - 1;
+        }
+        slides[slideIndex].style.display = "block";
+
+        document.getElementById("carousel-title").textContent =
+          slideTitles[slideIndex];
+        document.getElementById("carousel-description").textContent =
+          slideDescriptions[slideIndex];
+      }
+
+      function startSlideShow() {
+        showSlides();
+        slideInterval = setInterval(() => {
+          slideIndex++;
+          showSlides();
+        }, 4000);
+      }
+
+      function moveSlide(n) {
+        clearInterval(slideInterval);
+        slideIndex += n;
+        showSlides();
+        startSlideShow();
+      }
+
+      document.addEventListener("DOMContentLoaded", startSlideShow);
+    </script>
+  </body>
+</html>

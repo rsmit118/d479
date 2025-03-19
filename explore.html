@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore Taniti</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo-container">
+        <div class="logo">Taniti</div>
+        <a href="visit.html" class="nav-button">Plan Your Trip</a>
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li>
+            <a href="city.html"><i class="fas fa-city"></i> City</a>
+          </li>
+          <li>
+            <a href="food.html"><i class="fas fa-utensils"></i> Food</a>
+          </li>
+          <li>
+            <a href="explore.html"
+              ><i class="fas fa-map-marked-alt"></i> Explore</a
+            >
+          </li>
+          <li>
+            <a href="visit.html"><i class="fas fa-plane"></i> Visit</a>
+          </li>
+          <li>
+            <a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Adventure Awaits in Taniti</h1>
+      <p>
+        Discover stunning landscapes, thrilling activities, and breathtaking
+        sights.
+      </p>
+    </section>
+
+    <section class="main-content">
+      <div class="carousel-container">
+        <div class="carousel">
+          <div class="carousel-slide">
+            <img src="images/beach2.jpg" alt="Beautiful beaches of Taniti" />
+          </div>
+          <div class="carousel-slide">
+            <img src="images/volcano1.jpg" alt="Active volcano in Taniti" />
+          </div>
+          <div class="carousel-slide">
+            <img
+              src="images/rainforest2.jpg"
+              alt="Exploring the lush rainforest"
+            />
+          </div>
+          <div class="carousel-buttons">
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+          </div>
+        </div>
+        <div class="carousel-text">
+          <h2 id="carousel-title">Relax on Taniti’s Beaches</h2>
+          <p id="carousel-description">
+            Spend your days on pristine white sand beaches, enjoying
+            crystal-clear waters and breathtaking ocean views.
+          </p>
+        </div>
+      </div>
+
+      <div class="explore-info-box">
+        <h2>Things to Do in Taniti</h2>
+        <p>
+          Whether you're looking for relaxation or adventure, Taniti offers a
+          variety of activities to suit every traveler.
+        </p>
+
+        <h3>Outdoor Adventures</h3>
+        <ul>
+          <li>
+            <strong>Hiking:</strong> Trek through lush rainforests and enjoy
+            panoramic views from Taniti’s mountain trails.
+          </li>
+          <li>
+            <strong>Snorkeling & Diving:</strong> Explore vibrant coral reefs
+            teeming with marine life.
+          </li>
+          <li>
+            <strong>Volcano Tours:</strong> Visit Taniti’s active volcano and
+            witness its stunning lava flows.
+          </li>
+          <li>
+            <strong>Zip-Lining:</strong> Experience the thrill of soaring over
+            the jungle canopy.
+          </li>
+        </ul>
+
+        <h3>Sightseeing & Cultural Attractions</h3>
+        <ul>
+          <li>
+            <strong>Museum of Taniti:</strong> Learn about the island’s rich
+            history and culture.
+          </li>
+          <li>
+            <strong>Local Art Galleries:</strong> Discover unique works by
+            Tanitian artists.
+          </li>
+          <li>
+            <strong>Historical Landmarks:</strong> Explore ancient ruins and
+            colonial-era architecture.
+          </li>
+        </ul>
+
+        <h3>Water Activities</h3>
+        <ul>
+          <li>
+            <strong>Fishing Tours:</strong> Join a guided fishing trip with
+            experienced local captains.
+          </li>
+          <li>
+            <strong>Kayaking & Paddleboarding:</strong> Glide across calm,
+            turquoise waters.
+          </li>
+          <li>
+            <strong>Boat Tours:</strong> Cruise around the island and discover
+            hidden coves.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Taniti Tourism | <a href="contact.html">Contact Us</a></p>
+    </footer>
+
+    <script>
+      let slideIndex = 0;
+      let slides;
+      let slideTitles = [
+        "Relax on Taniti’s Beaches",
+        "Explore the Volcano",
+        "Discover the Rainforest",
+      ];
+      let slideDescriptions = [
+        "Spend your days on pristine white sand beaches, enjoying crystal-clear waters and breathtaking ocean views.",
+        "Take a guided tour to Taniti’s active volcano and witness nature’s raw power.",
+        "Venture deep into Taniti’s rainforest, where you can hike, encounter exotic wildlife, and experience untouched nature.",
+      ];
+      let slideInterval;
+
+      function showSlides() {
+        slides = document.querySelectorAll(".carousel-slide");
+        slides.forEach((slide) => (slide.style.display = "none"));
+        if (slideIndex >= slides.length) {
+          slideIndex = 0;
+        }
+        if (slideIndex < 0) {
+          slideIndex = slides.length - 1;
+        }
+        slides[slideIndex].style.display = "block";
+
+        document.getElementById("carousel-title").textContent =
+          slideTitles[slideIndex];
+        document.getElementById("carousel-description").textContent =
+          slideDescriptions[slideIndex];
+      }
+
+      function startSlideShow() {
+        showSlides();
+        slideInterval = setInterval(() => {
+          slideIndex++;
+          showSlides();
+        }, 4000);
+      }
+
+      function moveSlide(n) {
+        clearInterval(slideInterval);
+        slideIndex += n;
+        showSlides();
+        startSlideShow();
+      }
+
+      document.addEventListener("DOMContentLoaded", startSlideShow);
+    </script>
+  </body>
+</html>

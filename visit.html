@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plan Your Visit - Taniti</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo-container">
+        <div class="logo">Taniti</div>
+        <a href="visit.html" class="nav-button">Plan Your Trip</a>
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li>
+            <a href="city.html"><i class="fas fa-city"></i> City</a>
+          </li>
+          <li>
+            <a href="food.html"><i class="fas fa-utensils"></i> Food</a>
+          </li>
+          <li>
+            <a href="explore.html"
+              ><i class="fas fa-map-marked-alt"></i> Explore</a
+            >
+          </li>
+          <li>
+            <a href="visit.html"><i class="fas fa-plane"></i> Visit</a>
+          </li>
+          <li>
+            <a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="visit-container">
+        <div class="visit-box">
+          <h2><i class="fas fa-calendar-check"></i> Plan Your Visit</h2>
+          <form action="#" method="POST" class="visit-form">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="phone">Phone Number (Optional):</label>
+            <input type="tel" id="phone" name="phone" />
+
+            <label for="travel-dates">Travel Dates:</label>
+            <input type="date" id="travel-start" name="travel-start" required />
+            <input type="date" id="travel-end" name="travel-end" required />
+
+            <label for="travelers">Number of Travelers:</label>
+            <input
+              type="number"
+              id="travelers"
+              name="travelers"
+              min="1"
+              required
+            />
+
+            <label for="accommodation">Accommodation Preference:</label>
+            <select id="accommodation" name="accommodation" required>
+              <option value="resort">Resort</option>
+              <option value="hotel">Hotel</option>
+              <option value="bnb">Bed & Breakfast</option>
+              <option value="hostel">Hostel</option>
+              <option value="rental">Vacation Rental</option>
+            </select>
+
+            <label>Activities Interested In:</label>
+            <div
+              class="activities-options"
+              style="display: flex; flex-wrap: wrap; gap: 15px"
+            >
+              <label style="flex: 1 1 45%"
+                ><input
+                  type="checkbox"
+                  id="snorkeling"
+                  name="activities"
+                  value="snorkeling"
+                />
+                Snorkeling</label
+              >
+              <label style="flex: 1 1 45%"
+                ><input
+                  type="checkbox"
+                  id="hiking"
+                  name="activities"
+                  value="hiking"
+                />
+                Rainforest Hiking</label
+              >
+              <label style="flex: 1 1 45%"
+                ><input
+                  type="checkbox"
+                  id="volcano"
+                  name="activities"
+                  value="volcano"
+                />
+                Volcano Tour</label
+              >
+              <label style="flex: 1 1 45%"
+                ><input
+                  type="checkbox"
+                  id="culture"
+                  name="activities"
+                  value="culture"
+                />
+                Cultural/Historical Tours</label
+              >
+              <label style="flex: 1 1 45%"
+                ><input
+                  type="checkbox"
+                  id="watersports"
+                  name="activities"
+                  value="watersports"
+                />
+                Water Sports</label
+              >
+              <label style="flex: 1 1 45%"
+                ><input
+                  type="checkbox"
+                  id="dining"
+                  name="activities"
+                  value="dining"
+                />
+                Local Dining Experiences</label
+              >
+            </div>
+
+            <label for="notes">Special Requests or Notes:</label>
+            <textarea id="notes" name="notes" rows="4"></textarea>
+
+            <button type="submit" class="submit-button">Submit</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Taniti Tourism | <a href="contact.html">Contact Us</a></p>
+    </footer>
+  </body>
+</html>

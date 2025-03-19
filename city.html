@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taniti City</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo-container">
+        <div class="logo">Taniti</div>
+        <a href="visit.html" class="nav-button">Plan Your Trip</a>
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li>
+            <a href="city.html"><i class="fas fa-city"></i> City</a>
+          </li>
+          <li>
+            <a href="food.html"><i class="fas fa-utensils"></i> Food</a>
+          </li>
+          <li>
+            <a href="explore.html"
+              ><i class="fas fa-map-marked-alt"></i> Explore</a
+            >
+          </li>
+          <li>
+            <a href="visit.html"><i class="fas fa-plane"></i> Visit</a>
+          </li>
+          <li>
+            <a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Welcome to Taniti City</h1>
+      <p>
+        The cultural and economic hub of Taniti, offering a blend of modern
+        amenities and island charm.
+      </p>
+    </section>
+
+    <section class="main-content">
+      <div class="carousel-container">
+        <div class="carousel">
+          <div class="carousel-slide">
+            <img src="images/taniti2.jpg" alt="Aerial view of Taniti City" />
+          </div>
+          <div class="carousel-slide">
+            <img src="images/taniti3.jpg" alt="Taniti City Market" />
+          </div>
+          <div class="carousel-slide">
+            <img src="images/dance1.jpg" alt="Traditional Tanitian Dance" />
+          </div>
+          <div class="carousel-buttons">
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+          </div>
+        </div>
+        <div class="carousel-text">
+          <h2 id="carousel-title">About Taniti City</h2>
+          <p id="carousel-description">Taniti City is the island’s capital.</p>
+        </div>
+      </div>
+
+      <div class="city-info-box">
+        <h2>Discover Taniti</h2>
+        <p>
+          Taniti is a thriving island nation that blends modern infrastructure
+          with rich cultural traditions. The capital, Taniti City, serves as the
+          island’s central hub, offering a range of accommodations, dining
+          options, and entertainment.
+        </p>
+
+        <h3>Other Cities & Villages</h3>
+        <p>
+          While Taniti City is the largest urban area, the island is dotted with
+          smaller villages and coastal towns, each offering a unique glimpse
+          into island life. Visitors can explore historic fishing communities,
+          scenic beachfront resorts, and lush rainforest villages.
+        </p>
+
+        <h3>Things to Do in Taniti City</h3>
+        <p>
+            <ul>
+                <li>Visit the central market for local crafts and fresh produce.</li>
+                <li>Explore museums and cultural centers showcasing Tanitian history.</li>
+                <li>Relax at one of the many white-sand beaches near the city.</li>
+                <li>Enjoy water activities, including snorkeling and boat tours.</li>
+                <li>Dine at restaurants featuring freshly caught seafood and tropical fruits.</li>
+            </ul>
+        </p>
+
+        <h3>Shopping & Entertainment</h3>
+        <p>
+            Taniti City has a variety of shopping experiences, from high-end boutiques to bustling street markets. The nightlife includes beachfront bars, live music venues, and a new dance club that has become a favorite among visitors.
+        </p>
+
+        <h3>Activities for Tourists</h3>
+        <p>
+          Beyond shopping, Taniti offers a wide range of activities. Tourists
+          can enjoy guided tours of historical landmarks, boat excursions to
+          hidden lagoons, and cultural performances that showcase traditional
+          music and dance. For adventure seekers, activities like zip-lining,
+          snorkeling, and deep-sea fishing are readily available.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Taniti Tourism | <a href="contact.html">Contact Us</a></p>
+    </footer>
+
+    <script>
+      let slideIndex = 0;
+      let slides;
+      let slideTitles = [
+        "About Taniti City",
+        "Culture and Attractions",
+        "Traditional Dance",
+      ];
+      let slideDescriptions = [
+        "Taniti City, the island’s capital, is a vibrant coastal city known for its scenic ocean views, local markets, and welcoming atmosphere.",
+        "Visitors can explore open-air markets, small family-owned shops, and restaurants offering fresh seafood, local specialties, and international cuisine.",
+        "While Taniti City is the island’s main hub, visitors can explore small fishing villages, rainforest trails, and breathtaking volcanic landscapes.",
+      ];
+      let slideInterval;
+
+      function showSlides() {
+        slides = document.querySelectorAll(".carousel-slide");
+        slides.forEach((slide) => (slide.style.display = "none"));
+        if (slideIndex >= slides.length) {
+          slideIndex = 0;
+        }
+        if (slideIndex < 0) {
+          slideIndex = slides.length - 1;
+        }
+        slides[slideIndex].style.display = "block";
+
+        document.getElementById("carousel-title").textContent =
+          slideTitles[slideIndex];
+        document.getElementById("carousel-description").textContent =
+          slideDescriptions[slideIndex];
+      }
+
+      function startSlideShow() {
+        showSlides();
+        slideInterval = setInterval(() => {
+          slideIndex++;
+          showSlides();
+        }, 4000);
+      }
+
+      function moveSlide(n) {
+        clearInterval(slideInterval);
+        slideIndex += n;
+        showSlides();
+        startSlideShow();
+      }
+
+      document.addEventListener("DOMContentLoaded", startSlideShow);
+    </script>
+  </body>
+</html>
